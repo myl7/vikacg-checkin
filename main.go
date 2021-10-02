@@ -9,10 +9,11 @@ import (
 	"strings"
 )
 
+const URL = "https://www.vikacg.com/wp-json/b2/v1/userMission"
+
 var (
-	URL           = "https://www.vikacg.com/wp-json/b2/v1/userMission"
-	AUTHORIZATION = os.Getenv("AUTHORIZATION")
-	COOKIE        = os.Getenv("COOKIE")
+	authorizations = os.Getenv("AUTHORIZATION")
+	cookies        = os.Getenv("COOKIE")
 )
 
 type checkResult struct {
@@ -26,13 +27,13 @@ type mission struct {
 
 func main() {
 
-	if AUTHORIZATION == "" || COOKIE == "" {
+	if authorizations == "" || cookies == "" {
 		log.Print("no configuration was read, please check the configuration")
 		return
 	}
 
-	authorizationArray := strings.Split(AUTHORIZATION, "#")
-	cookieArray := strings.Split(COOKIE, "#")
+	authorizationArray := strings.Split(authorizations, "#")
+	cookieArray := strings.Split(cookies, "#")
 
 	length := len(authorizationArray)
 	if length != len(cookieArray) {
@@ -63,6 +64,7 @@ func check(authorization, cookie string) {
 		return
 	}
 
+	defer response.Body.Close()
 	bytes, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		log.Print(err)
