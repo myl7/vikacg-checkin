@@ -11,8 +11,8 @@ import (
 
 var (
 	URL           = "https://www.vikacg.com/wp-json/b2/v1/userMission"
-	AUTHORIZATION = os.Getenv("secrets.AUTHORIZATION")
-	COOKIE        = os.Getenv("secrets.COOKIE")
+	AUTHORIZATION = os.Getenv("AUTHORIZATION")
+	COOKIE        = os.Getenv("COOKIE")
 )
 
 type checkResult struct {
