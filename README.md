@@ -4,14 +4,13 @@
 
 ## 使用说明
 
-1、获取authorization和cookie
+1、获取authorization
 
-- 登录VikACG，浏览器F12打开控制台，点击签到，在控制台找到任一请求，复制Request Headers中的authorization和cookie的值
+- 登录VikACG，浏览器F12打开控制台，点击签到，在控制台找到任一请求，复制Request Headers中的authorization的值
 
 2、Fork本仓库，然后进入你fork好的仓库，依次选择Settings-Secrets-New repository secret
 
 - 此时进入密匙创建选项，Name填`AUTHORIZATION`，Value填刚刚复制好的authorization，如有多个账户，需要用`#`隔开
-- 同理，再创建个密匙，Name填`COOKIE`，Value填刚刚复制好的cookie，如有多个账户，需要用`#`隔开，且顺序要与刚刚填写的`AUTHORIZATION`对应
 
 3、点击项目上方的Actions选项
 

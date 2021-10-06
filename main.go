@@ -11,10 +11,7 @@ import (
 
 const URL = "https://www.vikacg.com/wp-json/b2/v1/userMission"
 
-var (
-	authorizations = os.Getenv("AUTHORIZATION")
-	cookies        = os.Getenv("COOKIE")
-)
+var authorizations = os.Getenv("AUTHORIZATION")
 
 type checkResult struct {
 	Credit  int     `json:"credit"`
@@ -27,27 +24,21 @@ type mission struct {
 
 func main() {
 
-	if authorizations == "" || cookies == "" {
+	if authorizations == "" {
 		log.Print("no configuration was read, please check the configuration")
 		return
 	}
 
 	authorizationArray := strings.Split(authorizations, "#")
-	cookieArray := strings.Split(cookies, "#")
-
 	length := len(authorizationArray)
-	if length != len(cookieArray) {
-		log.Print("wrong configuration was read, please check the configuration")
-		return
-	}
 
 	for i := 0; i < length; i++ {
 		log.Printf("正在签到第%d个用户, 共计%d个用户", i+1, length)
-		check(authorizationArray[i], cookieArray[i])
+		check(authorizationArray[i])
 	}
 }
 
-func check(authorization, cookie string) {
+func check(authorization string) {
 	request, err := http.NewRequest(http.MethodPost, URL, nil)
 	if err != nil {
 		log.Print(err)
@@ -55,7 +46,6 @@ func check(authorization, cookie string) {
 	}
 
 	request.Header.Add("authorization", authorization)
-	request.Header.Add("cookie", cookie)
 
 	client := &http.Client{}
 	response, err := client.Do(request)

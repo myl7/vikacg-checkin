@@ -5,6 +5,8 @@ on:
       - main
   schedule:
     - cron: 0 16 * * *
+env:
+  TZ: Asia/Shanghai
 jobs:
   check-in-job:
     runs-on: ubuntu-latest
@@ -19,4 +21,3 @@ jobs:
         run: go run main.go
         env:
           AUTHORIZATION: ${{secrets.AUTHORIZATION}}
-          COOKIE: ${{secrets.COOKIE}}
