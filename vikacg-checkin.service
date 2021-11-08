@@ -3,5 +3,6 @@ Description=VikACG checkin
 After=network.target network-online.target
 
 [Service]
+EnvironmentFile=/etc/default/vikacg-checkin
 Type=oneshot
 ExecStart=/usr/local/bin/vikacg-checkin
