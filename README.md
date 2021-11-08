@@ -1,3 +1,21 @@
+# vikacg-checkin
+
+基于 systemd/docker 的维咔 VikACG 自动签到
+
+代码来自 [CrossingLK/vikacg-auto-check](https://github.com/CrossingLK/vikacg-auto-check)，此 repo 暂时只是将 scheduler 由 GitHub Actions 换为了 systemd/Docker，防止在 GitHub Actions 严查大潮下因签到型任务被 GitHub 封号（能解，但比较麻烦）
+
+## 部署
+
+TODO
+
+## License
+
+All modifications are still licensed under MIT
+
+后续部分是原 repo 的 README：
+
+---
+
 # vikacg-auto-check
 
 基于GitHub Action的维咔VikACG自动签到
