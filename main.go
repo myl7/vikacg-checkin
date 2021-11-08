@@ -33,7 +33,7 @@ func main() {
 	length := len(authorizationArray)
 
 	for i := 0; i < length; i++ {
-		log.Printf("正在签到第%d个用户, 共计%d个用户", i+1, length)
+		log.Printf("正在签到第 %d 个用户, 共计 %d 个用户", i+1, length)
 		check(authorizationArray[i])
 	}
 }
@@ -69,9 +69,9 @@ func check(authorization string) {
 	data := new(checkResult)
 	err = json.Unmarshal(bytes, &data)
 	if err != nil {
-		log.Printf("今日已经签到过, 已经获得过积分%s分", strings.Trim(string(bytes), `"`))
+		log.Printf("今日已经签到过, 已经获得过积分 %s 分", strings.Trim(string(bytes), `"`))
 		return
 	}
 
-	log.Printf("签到成功, 获得积分%d分, 目前总积分%s分", data.Credit, data.Mission.MyCredit)
+	log.Printf("签到成功, 获得积分 %d 分, 目前总积分 %s 分", data.Credit, data.Mission.MyCredit)
 }
