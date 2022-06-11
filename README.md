@@ -62,10 +62,10 @@ sudo systemctl status vikacg-checkin.service
 
 ## 配置
 
-|      |      |                                            |
-| ---- | ---- | ------------------------------------------ |
-| AUTH | 必需 | `Authorization` token，用于身份认证        |
-| UA   | 可选 | User Agent，默认使用 `requests` 包的默认值 |
+|      |      |                                                                                     |
+| ---- | ---- | ----------------------------------------------------------------------------------- |
+| AUTH | 必需 | `Authorization` token，用于身份认证，可以可选地略去开头的 `Bearer` 及随后的一个空格 |
+| UA   | 可选 | User Agent，默认使用 `requests` 包的默认值                                          |
 
 ## 自定义
 
