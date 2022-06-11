@@ -69,7 +69,9 @@ sudo systemctl status vikacg-checkin.service
 
 ## 自定义
 
-<!-- TODO -->
+[`run.py`](run.py) 文件中留有成功 hook 和失败 hook，方便实现如出错后发送邮件进行通知等功能
+
+以发送邮件为例，Python 发送邮件可以参考[这个的 Python 发送邮件实现](https://gist.github.com/myl7/95e94cf19388f182bd4194ecff7352d8)，将其中的代码填在需要的 hook 中即可
 
 ## 致谢
 
