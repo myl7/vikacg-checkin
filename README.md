@@ -73,6 +73,10 @@ sudo systemctl status vikacg-checkin.service
 
 以发送邮件为例，Python 发送邮件可以参考[这个的 Python 发送邮件实现](https://gist.github.com/myl7/95e94cf19388f182bd4194ecff7352d8)，将其中的代码填在需要的 hook 中即可
 
+默认签到周期配置在 [`crontab.txt`](crontab.txt) 或 [`vikacg-checkin.timer`](vikacg-checkin.timer) 中，如需在部署后修改也可以通过修改容器中 `/etc/crontab` 并重载 crontab 或是修改 `/etc/systemd/system/vikacg-checkin.timer` 并重载 systemd 实现
+
+特别地，受益于 systemd timer 的机制，systemd 部署的此应用将会在 3h 的时间段内的随机一个时刻进行签到
+
 ## 致谢
 
 - [CrossingLK/vikacg-auto-check](https://github.com/CrossingLK/vikacg-auto-check)
