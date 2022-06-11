@@ -6,11 +6,15 @@
 import os
 import logging
 import json
+import sys
 from typing import Dict, Union
 
 import requests
 
-logging.basicConfig(level=logging.INFO, format='%(levelname)s:%(name)s:%(asctime)s:%(message)s')
+if sys.version_info.minor >= 9:
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s:%(name)s:%(asctime)s:%(message)s', encoding='utf-8')
+else:
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s:%(name)s:%(asctime)s:%(message)s')
 
 EXIT_CODE_INVALID_CONFIG = 1
 EXIT_CODE_FAILED = 2
