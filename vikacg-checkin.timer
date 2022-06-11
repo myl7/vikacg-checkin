@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily VikACG checkin
+
+[Timer]
+OnCalendar=*-*-* 09:00 Asia/Shanghai
+RandomizedDelaySec=3h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,1 @@
+0 17 * * * vikacg-checkin >> /var/log/vikacg-checkin.log

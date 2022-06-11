@@ -1,0 +1,8 @@
+[Unit]
+Description=VikACG checkin
+After=network.target network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/default/vikacg-checkin
+ExecStart=/usr/local/bin/vikacg-checkin
