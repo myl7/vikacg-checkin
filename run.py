@@ -6,7 +6,7 @@
 import os
 import logging
 import json
-from typing import Dict
+from typing import Dict, Union
 
 import requests
 
@@ -55,7 +55,7 @@ if res.status_code != 200:
     logging.error(app_format_err(err_msg, err_ctx))
     app_failed(exit_code, err_msg, err_ctx)
     exit(exit_code)
-res_body: Dict | str = res.json()
+res_body: Union[Dict, str] = res.json()
 if isinstance(res_body, str):
     exit_code = EXIT_CODE_FAILED
     err_msg = f'签到失败，今天已经签到过了，获得积分 {res_body}'
